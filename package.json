@@ -1,7 +1,7 @@
 {
-  "name": "npm-package-typescript-development-scaffold",
+  "name": "@dsfx3d/persistence",
   "version": "0.0.0-development",
-  "description": "typescript babel jest prettier based package building boilerplate",
+  "description": "Universally adaptive key-value pair based persistence layer",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dsfx3d/npm-package-typescript-development-scaffold.git"
+    "url": "https://github.com/dsfx3d/persistence.git"
   },
   "keywords": [
     "typescript",
@@ -40,9 +40,9 @@
   "author": "dsfx3d <dsfx3d@gmail.com> (https://dsfx3d.me/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dsfx3d/npm-package-typescript-development-scaffold/issues"
+    "url": "https://github.com/dsfx3d/persistence/issues"
   },
-  "homepage": "https://github.com/dsfx3d/npm-package-typescript-development-scaffold#readme",
+  "homepage": "https://github.com/dsfx3d/persistence#readme",
   "devDependencies": {
     "@babel/cli": "7.10.5",
     "@babel/core": "7.11.1",
