@@ -1,6 +1,6 @@
-import { Adapter } from '../../../types/adapters'
+import { AsyncAdapter } from '../../../types/adapters'
 
-export class WebStorageAdapter implements Adapter {
+export class WebStorageAdapter implements AsyncAdapter {
   private baseKey: string
   private storage: Storage
 
@@ -9,25 +9,25 @@ export class WebStorageAdapter implements Adapter {
     this.storage = config.storage
   }
 
-  key(n: number): string {
+  async key(n: number): Promise<string> {
     return this.storage.key(n)
   }
 
-  getItem<T = any>(key: string, fallback: T): T {
+  async getItem<T = any>(key: string, fallback: T): Promise<T> {
     const store = this.storage.getItem(`${this.baseKey}.${key}`)
     return store ? JSON.parse(store) : fallback
   }
 
-  setItem<T = any>(key: string, value: T): void {
+  async setItem<T = any>(key: string, value: T): Promise<void> {
     const json = JSON.stringify(value)
     this.storage.setItem(`${this.baseKey}.${key}`, json)
   }
 
-  removeItem(key: string) {
+  async removeItem(key: string): Promise<void> {
     this.storage.removeItem(`${this.baseKey}.${key}`)
   }
 
-  clear() {
+  async clear() {
     this.storage.clear()
   }
 }
