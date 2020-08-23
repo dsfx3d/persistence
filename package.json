@@ -1,9 +1,9 @@
 {
   "name": "@dsfx3d/persistence",
-  "version": "0.0.0-development",
+  "version": "0.0.1-alpha",
   "description": "Universally adaptive key-value pair based persistence layer",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/"
   ],
