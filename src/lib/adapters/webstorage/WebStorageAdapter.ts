@@ -1,6 +1,8 @@
 import { AsyncAdapter, WebStorageConfig } from '../../../types/adapters'
+import { BaseAdapter } from '../../core/BaseAdapter'
 
-export class WebStorageAdapter implements AsyncAdapter {
+export class WebStorageAdapter extends BaseAdapter<WebStorageConfig>
+  implements AsyncAdapter {
   private baseKey: string
   private storage: Storage
 
@@ -8,6 +10,7 @@ export class WebStorageAdapter implements AsyncAdapter {
   private static _SESSION: symbol = Symbol('session')
 
   constructor(config: WebStorageConfig) {
+    super(config)
     config.storage = config.storage || WebStorageAdapter.LOCAL
     this._validateConfig(config)
     this._parseConfig(config)
