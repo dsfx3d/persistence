@@ -1,6 +1,6 @@
 import { AsyncAdapter } from '../../types/adapters'
 
-export class BaseAdapter<T> implements AsyncAdapter {
+export class BaseAdapter<T = any> implements AsyncAdapter {
   constructor(config: T) {
     /* Do Nothing */
   }
