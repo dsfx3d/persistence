@@ -8,6 +8,7 @@ export class WebStorageAdapter implements AsyncAdapter {
   private static _SESSION: symbol = Symbol('session')
 
   constructor(config: WebStorageConfig) {
+    config.storage = config.storage || WebStorageAdapter.LOCAL
     this._validateConfig(config)
     this._parseConfig(config)
   }
@@ -15,7 +16,7 @@ export class WebStorageAdapter implements AsyncAdapter {
   private _validateConfig(config: WebStorageConfig) {
     const validStorage =
       config.storage === WebStorageAdapter.LOCAL ||
-      config.storage === WebStorageAdapter.LOCAL
+      config.storage === WebStorageAdapter.SESSION
 
     if (!validStorage) {
       throw new Error(
@@ -56,7 +57,7 @@ export class WebStorageAdapter implements AsyncAdapter {
     this.storage.removeItem(`${this.baseKey}.${key}`)
   }
 
-  async clear() {
+  async clear(): Promise<void> {
     this.storage.clear()
   }
 }
