@@ -1,4 +1,4 @@
-import { AdapterFactory } from '../../../types/AdapterFactory'
+import { AdapterFactory } from '../../../types/adapters'
 import { WebStorageAdapter } from './WebStorageAdapter'
 
 export class WebStorageAdapterFactory

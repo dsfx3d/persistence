@@ -5,3 +5,7 @@ export interface Adapter {
   removeItem(key: string): void
   clear(): void
 }
+
+export interface AdapterFactory<T = any> {
+  build(): T
+}

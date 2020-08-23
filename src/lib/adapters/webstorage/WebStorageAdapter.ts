@@ -1,11 +1,11 @@
-import { Adapter } from '../../../types/Adapter'
+import { Adapter } from '../../../types/adapters'
 
 export class WebStorageAdapter implements Adapter {
   private baseKey: string
   private storage: Storage
 
   constructor(config: any) {
-    this.baseKey = config.baseKey
+    this.baseKey = config.key
     this.storage = config.storage
   }
 
