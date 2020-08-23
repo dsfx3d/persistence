@@ -1,12 +1,41 @@
-import { AsyncAdapter } from '../../../types/adapters'
+import { AsyncAdapter, WebStorageConfig } from '../../../types/adapters'
 
 export class WebStorageAdapter implements AsyncAdapter {
   private baseKey: string
   private storage: Storage
 
-  constructor(config: any) {
+  private static _LOCAL: symbol = Symbol('local')
+  private static _SESSION: symbol = Symbol('session')
+
+  constructor(config: WebStorageConfig) {
+    this._validateConfig(config)
+    this._parseConfig(config)
+  }
+
+  private _validateConfig(config: WebStorageConfig) {
+    const validStorage =
+      config.storage === WebStorageAdapter.LOCAL ||
+      config.storage === WebStorageAdapter.LOCAL
+
+    if (!validStorage) {
+      throw new Error(
+        '[persistence] config property "storage" must be one of "local" or "session"'
+      )
+    }
+  }
+
+  private _parseConfig(config: WebStorageConfig) {
     this.baseKey = config.key
-    this.storage = config.storage
+    this.storage =
+      config.storage === WebStorageAdapter.LOCAL ? localStorage : sessionStorage
+  }
+
+  static get LOCAL(): symbol {
+    return this._LOCAL
+  }
+
+  static get SESSION(): symbol {
+    return this._SESSION
   }
 
   async key(n: number): Promise<string> {

@@ -9,3 +9,10 @@ export interface AsyncAdapter {
 export interface AdapterFactory<T = any> {
   build(): T
 }
+
+export interface WebStorageConfig {
+  LOCAL: symbol
+  SESSION: symbol
+  key: string
+  storage: symbol | Storage
+}
