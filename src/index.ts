@@ -1,3 +1,1 @@
-export default () => {
-  return 1
-}
+export { Persistence } from './lib/Persistence'
