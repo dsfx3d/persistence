@@ -67,7 +67,6 @@
     "ghooks": "2.0.4",
     "jest": "26.4.2",
     "prettier": "2.0.5",
-    "rollup": "2.26.6",
     "semantic-release": "17.1.1",
     "ts-jest": "26.2.0",
     "tslint": "6.1.3",
