@@ -19,6 +19,8 @@
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
     "prebuild": "npm run lint",
     "build": "npm run build:types && npm run build:js",
+    "watch:types": "tsc --emitDeclarationOnly --watch",
+    "watch:js": "babel src --watch --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
     "bundle": "",
     "precommit": "npm run lint && npm run test",
     "commit": "git-cz"
