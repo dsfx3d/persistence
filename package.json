@@ -22,6 +22,7 @@
     "watch:types": "tsc --emitDeclarationOnly --watch",
     "watch:js": "babel src --watch --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
     "watch": "concurrently -n watch-js,watch-types \"yarn watch:js\" \"yarn watch:types\"",
+    "prebundle": "yarn build",
     "bundle": "webpack",
     "precommit": "npm run lint && npm run test",
     "commit": "git-cz"
