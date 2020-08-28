@@ -21,6 +21,7 @@
     "build": "npm run build:types && npm run build:js",
     "watch:types": "tsc --emitDeclarationOnly --watch",
     "watch:js": "babel src --watch --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "watch": "concurrently -n watch-js,watch-types \"yarn watch:js\" \"yarn watch:types\"",
     "bundle": "",
     "precommit": "npm run lint && npm run test",
     "commit": "git-cz"
